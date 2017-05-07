@@ -8,13 +8,12 @@ import dmtrsh.proxy.crawler.proxy.HideMyNameProxy;
 import dmtrsh.proxy.crawler.proxy.ProxyHandler;
 
 
-import java.io.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
 
 public class ProxyCrawler {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         if (args.length < 3)
             throw new IllegalArgumentException("Please specify parameters: " +
                     "String country, int maxTime, int maxCheckTime");

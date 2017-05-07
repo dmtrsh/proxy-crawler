@@ -15,12 +15,12 @@ import java.util.List;
 public class HideMyNameProxyParser implements PageFofProxyParser {
     private final static Logger logger = LoggerFactory.getLogger(HideMyNameProxyParser.class);
     private int maxCheckTime = Integer.MAX_VALUE;
-    private String url = "https://hidemy.name/en/dmtrsh.proxy.crawler.proxy-list/" +
+    private String url = "https://hidemy.name/en/proxy-list/" +
             "?${country}${maxTime}&start=0&end=" + Integer.MAX_VALUE;
 
     public HideMyNameProxyParser(String country, int maxTime, int maxCheckTime) {
         this.url = url
-                .replace("${country}", "&country=" + country)
+                .replace("${country}", "country=" + country)
                 .replace("${maxTime}", "&maxtime=" + maxTime);
         this.maxCheckTime = maxCheckTime;
     }
