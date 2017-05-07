@@ -1,0 +1,31 @@
+group 'dmtrsh'
+version '1.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile 'log4j:log4j:1.2.17'
+    compile 'org.slf4j:slf4j-log4j12:1.7.25'
+    compile 'org.slf4j:slf4j-api:1.7.25'
+    compile 'com.ning:async-http-client:1.9.40'
+    compile 'org.jsoup:jsoup:1.10.2'
+    testCompile 'junit:junit:4.11'
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Proxy Crawler',
+                'Implementation-Version': version,
+                'Main-Class': 'dmtrsh.proxy.crawler.ProxyCrawler'
+    }
+    baseName = project.name
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
