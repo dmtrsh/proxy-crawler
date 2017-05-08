@@ -1,10 +1,10 @@
 package dmtrsh.proxy.crawler.check;
 
-public class Response {
+public class ProxyResponse {
     private int responseCode;
     private String responseBody;
 
-    public Response(int responseCode, String responseBody) {
+    public ProxyResponse(int responseCode, String responseBody) {
         this.responseCode = responseCode;
         this.responseBody = responseBody;
     }

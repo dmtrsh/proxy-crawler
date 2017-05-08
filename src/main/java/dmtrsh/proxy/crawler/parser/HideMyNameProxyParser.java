@@ -38,6 +38,7 @@ public class HideMyNameProxyParser implements PageFofProxyParser {
 
     @Override
     public List<HideMyNameProxy> parse() {
+        logger.info("Parse URL: " + url);
         List<HideMyNameProxy> hideMyNameProxies = new ArrayList<>();
         try {
             Document d = Jsoup.connect(url).get();
@@ -98,6 +99,6 @@ public class HideMyNameProxyParser implements PageFofProxyParser {
             int minutes = Integer.parseInt(values[2]) * 60 * 1000;
             return hours + minutes;
         }
-        throw new IllegalArgumentException("'Last dmtrsh.proxy.crawler.check' column has inappropriate value: " + rawMaxCheckTime);
+        throw new IllegalArgumentException("'Last check' column has inappropriate value: " + rawMaxCheckTime);
     }
 }

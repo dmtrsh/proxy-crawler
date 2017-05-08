@@ -38,13 +38,13 @@ public class CheckedHideMyNameProxy {
         return isAlive;
     }
 
-    public void setAlive() {
+    private void setAlive() {
         this.isAlive = proxyResponse.getResponseCode() == 200
                 && proxyResponse.getResponseBody().equals(hideMyNameProxy.getHost());
     }
 
     @Override
     public String toString() {
-        return hideMyNameProxy.toString() + (isAlive ? " Is alive." : ". Is not alive.");
+        return hideMyNameProxy.toString() + (isAlive ? " Is alive." : " Is not alive.");
     }
 }

@@ -25,10 +25,10 @@ public class CSVLogger {
             String country = hideMyNameProxy.getCountry();
             CSVUtils.writeLine(writer, Arrays.asList(host, port, latency, country), ',', '"');
         });
-
         try {
             writer.flush();
             writer.close();
+            logger.info("Information about alive proxies has been saved into: " + csvFile);
         } catch (IOException e) {
             logger.error(e.getMessage(), e);
             throw new RuntimeException("Unable to save: " + csvFile);

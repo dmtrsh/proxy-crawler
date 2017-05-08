@@ -74,6 +74,6 @@ public class HideMyNameProxy {
 
     @Override
     public String toString() {
-        return "Proxy: " + host + ":" + port + " from " + country + ", speed: " + speed;
+        return "Proxy: " + host + ":" + port + " from " + country + ", speed: " + speed + ".";
     }
 }
