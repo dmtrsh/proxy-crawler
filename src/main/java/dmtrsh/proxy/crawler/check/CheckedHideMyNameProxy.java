@@ -4,12 +4,12 @@ import dmtrsh.proxy.crawler.proxy.HideMyNameProxy;
 
 public class CheckedHideMyNameProxy {
     private HideMyNameProxy hideMyNameProxy;
-    private Response response;
+    private ProxyResponse proxyResponse;
     private boolean isAlive;
 
-    public CheckedHideMyNameProxy(HideMyNameProxy hideMyNameProxy, Response response){
+    public CheckedHideMyNameProxy(HideMyNameProxy hideMyNameProxy, ProxyResponse proxyResponse){
         this.hideMyNameProxy = hideMyNameProxy;
-        this.response = response;
+        this.proxyResponse = proxyResponse;
         setAlive();
     }
 
@@ -25,12 +25,12 @@ public class CheckedHideMyNameProxy {
         this.hideMyNameProxy = hideMyNameProxy;
     }
 
-    public Response getResponse() {
-        return response;
+    public ProxyResponse getProxyResponse() {
+        return proxyResponse;
     }
 
-    public void setResponse(Response response) {
-        this.response = response;
+    public void setProxyResponse(ProxyResponse proxyResponse) {
+        this.proxyResponse = proxyResponse;
         setAlive();
     }
 
@@ -39,8 +39,8 @@ public class CheckedHideMyNameProxy {
     }
 
     public void setAlive() {
-        this.isAlive = response.getResponseCode() == 200
-                && response.getResponseBody().equals(hideMyNameProxy.getHost());
+        this.isAlive = proxyResponse.getResponseCode() == 200
+                && proxyResponse.getResponseBody().equals(hideMyNameProxy.getHost());
     }
 
     @Override
